@@ -14,6 +14,6 @@ for i in range(len(data['surname'])):
 
 print(f'Total per country:')
 for country, items in by_country.items():
-    if country == 'united-states':
-        print(items)
+    # if country == 'madagascar':
+    #    print([x['surname'] for x in items])
     print(f'{country}: {len(items)}')
