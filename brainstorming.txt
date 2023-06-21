@@ -1,0 +1,20 @@
+// website potential functions //
+
+COUNTRY LAST NAMES LIST
+- app will prompt user to enter a country
+- upon entering country name, app will return a list of the most common last names of that country (up to 1000)
+
+LAST NAME COUNTRY GUESSER (GAME)
+- app will return a last name
+- user must guess the origin of the last name
+   - there may be multiple instances of the last name in various countries
+      - possible way to combat this would be to add the additional categorizer of region/language, or to award points proportional to percentage of occurrences
+   - the "country of origin" will be determined by greatest number of occurrences
+    ex: the user enters "kim"
+     while "kim" may occur in other countries, the app will only return south korea as it is the country where "kim" has the greatest number of occurrences
+   - correct guesses will add +1 to the existing score
+
+LAST NAME COUNTRY GUESSER (FUNCTION)
+- app will prompt user to enter a last name
+- app will return a list of possible countries of origin for the last name
+  - each result will be paired with a "percent chance" based on the number of occurences of the last name
