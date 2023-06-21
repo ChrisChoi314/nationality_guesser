@@ -19,3 +19,4 @@ LAST NAME COUNTRY GUESSER (FUNCTION)
 - app will return a list of possible countries of origin for the last name
   - each result will be paired with a "percent chance" based on the number of occurences of the last name
 - potential ML appliation(?)
+  - Use machine learning to train on a set of names and countries of origin to be able to train a model so that it recieves a novel surname and it guesses what country they are from.  
