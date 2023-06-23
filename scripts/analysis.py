@@ -13,7 +13,8 @@ for i in range(len(data['surname'])):
     by_country[item['country']].append(item)
 
 print(f'Total per country:')
+name = input('Enter country you want to see last names of: \n') 
 for country, items in by_country.items():
-    # if country == 'madagascar':
-    #    print([x['surname'] for x in items])
-    print(f'{country}: {len(items)}')
+    if country == name:
+       print([x['surname'] for x in items])
+    #print(f'{country}: {len(items)}')
