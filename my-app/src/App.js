@@ -3,14 +3,23 @@ import './App.css';
 
 function MyButton() {
   return (
-    <button>I'm a button</button>
+    <button>Guess the Country</button>
   );
 }
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      
+      <h1>Nationality Guessr </h1>
+      <h2>Last Names Edition</h2>
+      <MyButton />
+    </div> 
+    
+  );
+}
+
+/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -23,14 +32,6 @@ function App() {
         >
           Learn React
         </a>
-      </header>
-      <h1>Welcome to my app</h1>
-      <MyButton />
-    </div> 
-    
-  );
-}
-
-
+      </header>*/
 
 export default App;
