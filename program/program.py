@@ -36,6 +36,6 @@ while is_playing:
         inp = input(f'Your score is {score}. What country is the surname {surname} from? Enter your guess: \n')
     if inp == country:
         score += 1
-        print('Congrats! You got it right! That is incredible!\n')
+        print('Congrats! You got it right!\n')
     if inp != country and inp != quit:
-        print(f'Aw fiddlesticks. Better luck next time. The answer actually was {country}. The surname is the {rank_in_country}-most common last name in that country, and there are {incidence} people with that surname in that country.')
+        print(f'Incorrect. The answer actually was {country}. The surname is the {rank_in_country}-most common last name in that country, and there are {incidence} people with that surname in that country.')
