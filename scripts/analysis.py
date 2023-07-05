@@ -1,6 +1,6 @@
 import json
 
-with open('data/database.json', 'r') as f:
+with open('data/database_surnames.json', 'r') as f:
     data = json.load(f)
 
 print(f'Total: {len(data["surname"])}')

@@ -16,11 +16,19 @@ def repeat_get(url):
 
 text = repeat_get('https://forebears.io/countries')
 countries = re.findall(
-    '\\<a href\\=\\"([A-Za-z\\-\\_ ]+)\\"\\>\\<svg class\\=\\"flag-icon\\"\\>', text)
+    '\\<a href\\=\\"(((?!\\").)+)\\"\\>\\<svg class\\=\\"flag-icon\\"\\>', text)
+country_names = re.findall('\\</use\\>\\</svg\\>(((?!\\").)+)\\</a\\>', text)
 
-data = {'country': [], 'rank_in_country': [],
+countries = [x[0] for x in countries]
+print(countries)
+
+country_names = [x[0] for x in country_names]
+print(country_names)
+
+data = {'country': [], 'country_name': [], 'rank_in_country': [],
         'surname': [], 'incidence': [], 'frequency_denom': []}
 
+i = 0
 for country in countries:
     text = repeat_get(f'https://forebears.io/{country}/surnames')
     items = re.findall('\\<td\\>([0-9\\,]+)\\<\\/td\\>\\<td class\\=\\"sur\\"\\>\\<a href\\=\\"surnames/(((?!\\").)+)">(((?!\\<).)+)\\<\\/a\\>\\<\\/td\\>\\<td\\>([0-9\\,]+)\\<\\/td\\>\\<td\\>\\<span data\\-tooltip\\=\\"[0-9\\,\\.]+\\%\\"\\>[0-9\\,]+\\:([0-9\\,]+)\\<\\/span\\>\\<\\/td\\>', text)
@@ -35,13 +43,15 @@ for country in countries:
         incidence = int(item[5].replace(',', ''))
         frequency_denom = int(item[6].replace(',', ''))
         data['country'].append(country)
+        data['country_name'].append(country_names[i])
         data['rank_in_country'].append(rank)
         data['surname'].append(surname)
         data['incidence'].append(incidence)
         data['frequency_denom'].append(frequency_denom)
 
         prev_rank = rank
+    i+=1
 
-with open('data/database.json', 'w') as f:
+with open('data/database_surnames.json', 'w') as f:
     f.write(json.dumps(data))
     f.write('\n')
