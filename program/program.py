@@ -1,7 +1,7 @@
 import json
 import random
 
-with open('data/database_surnames.json', 'r') as f:
+with open('data/database_surnames_no_duplicates.json', 'r') as f:
     data = json.load(f)
 
 print(f'Total: {len(data["surname"])}')
@@ -14,6 +14,10 @@ for i in range(len(data['surname'])):
         by_country[item['country_name']] = []
     by_country[item['country_name']].append(item)
 
+alphabetical_countries = []
+for country_name, items in by_country.items():
+    alphabetical_countries += [country_name]
+alphabetical_countries.sort()
 
 is_playing = True 
 score = 0
@@ -26,8 +30,7 @@ while is_playing:
     inp = input(f'What country is the surname {surname} from? Enter your guess: \n')
     
     if inp == 'list':
-        for country_name, items in by_country.items():
-            print(f'{country_name}, ', end='')
+        print(alphabetical_countries)
         inp = input(f'What country is the surname {surname} from? Enter your guess: \n')
     if inp == 'quit':
         print('Thanks for playing! Hope you come again.')
